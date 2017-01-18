@@ -1,4 +1,4 @@
-package Banks;
+package Module04;
 
 public class User {
 
@@ -36,7 +36,7 @@ public class User {
     }
 
 
-    
+
 
 
     public long getId() {

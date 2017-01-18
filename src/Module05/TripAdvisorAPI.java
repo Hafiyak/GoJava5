@@ -4,7 +4,7 @@ package Module05;
  * Created by user on 15.01.2017.
  */
 public class TripAdvisorAPI extends APIAbstract {
-    
+
 
     public TripAdvisorAPI() {
         Room[] roomsSet = new Room[5];

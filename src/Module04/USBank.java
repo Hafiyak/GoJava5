@@ -1,59 +1,68 @@
-package Banks;
+package Module04;
 
 /**
  * Created by user on 01.12.2016.
  */
-public class  EUBank extends Bank {
+public class USBank extends Bank {
 
 
-    public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+
+
+    public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
+
+
+
 
     @Override
     int getLimitOfWithdrawal() {
         if (this.getCurrency() == Currency.EUR) {
-            return 2200;
+            return 1200;
         } else if (this.getCurrency() == Currency.USD) {
-            return 2000;
+            return 1000;
         } else {
             return -1;
         }
     }
-
+    @Override
     int getLimitOfFunding() {
         if (this.getCurrency() == Currency.EUR) {
-            return 20000;
-        } else if (this.getCurrency() == Currency.USD) {
             return 10000;
-        } else {
-            return -1;
-        }
-    }
-
-    int getMonthlyRate() {
-        if (this.getCurrency() == Currency.EUR) {
-            return 1;
         } else if (this.getCurrency() == Currency.USD) {
             return 0;
         } else {
             return -1;
         }
     }
-
-    int getCommission(int summ) {
+    @Override
+    int getMonthlyRate() {
         if (this.getCurrency() == Currency.EUR) {
-            return 2/100;
+            return 1/100;
         } else if (this.getCurrency() == Currency.USD) {
-            return 5/100;
+            return 2/100;
         } else {
             return -1;
         }
     }
-
-
+    @Override
+    int getCommission(int summ) {
+        if (this.getCurrency() == Currency.EUR) {
+            return 6/100;
+        } else if ( this.getCurrency() == Currency.USD ) {
+            return 5/100 ;
+        } else {
+            return -1;
+        }
+    }
     @Override
     double moneyPaidMonthlyForSalary() {
-        return 0;
+        if (this.getCurrency() == Currency.EUR) {
+            return 1000;
+        } else if (this.getCurrency() == Currency.USD) {
+            return 5000;
+        } else {
+            return -1;
+        }
     }
 }

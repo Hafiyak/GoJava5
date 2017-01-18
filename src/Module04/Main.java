@@ -1,6 +1,4 @@
-package Banks;
-
-import javax.jws.soap.SOAPBinding;
+package Module04;
 
 /**
  * Created by user on 04.12.2016.

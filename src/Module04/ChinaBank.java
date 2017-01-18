@@ -1,4 +1,4 @@
-package Banks;
+package Module04;
 
 /**
  * Created by user on 04.12.2016.
