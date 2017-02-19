@@ -7,41 +7,31 @@ package Module08.Homeworke;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractDAOImpl<T extends  AbstractEntity> implements AbstractDAO<T> {
-    private List<T> list = new ArrayList<T>();
-
+public abstract class AbstractDAOImpl<T extends AbstractEntity> implements AbstractDAO<T> {
+    private List<T> list = new ArrayList<>();
     @Override
     public T save(T t) {
-        return null;
+        list.add(t);
+        return t;
     }
 
     @Override
     public void delete(T t) {
-
+        list.remove(t);
     }
 
     @Override
-    public void deleteAll(List<? extends T> tlist) {
-
+    public void deleteAll(List<? extends T> tList) {
+        list.removeAll(tList);
     }
 
     @Override
-    public void saveAll(List<? extends T> tlist) {
-
+    public void saveAll(List<? extends T> tList) {
+        list.addAll(tList);
     }
 
     @Override
-    public List<? extends T> tlist() {
-        return null;
-    }
-
-    @Override
-    public void daleteById(long id) {
-
-    }
-
-    @Override
-    public T get(long id) {
-        return null;
+    public List<? extends T> getList() {
+        return this.list;
     }
 }
