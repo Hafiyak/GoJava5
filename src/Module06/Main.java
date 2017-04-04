@@ -1,54 +1,53 @@
 package Module06;
 
-/**
- * Created by user on 18.01.2017.
- */
 import java.util.Arrays;
 
+/**
+ * Created by user on 21.03.2017.
+ */
 public class Main {
     public static void main(String[] args) {
-        User alex = new User(1, "Alex", "Popov", 20000, 50000);
-        User vano = new User(2, "Ivan", "Ivanov", 5000, 300);
-        User pasha = new User(3,"Pavel", "Pavlov", 8000, 2000);
-        User pasha2 = new User(3,"Pavel", "Pavlov", 8000, 2000);
-        User kate = new User(4, "Kate", "Lyutych", 10000, 3000);
-        User olga = new User(5, "Olga", "Urumova", 50000, 30000);
-        User olga2 = new User(5, "Olga", "Urumova", 50000, 30000);
 
-        System.out.println("Sourse array:");
-        User[] users = {alex, vano, pasha, kate, olga, olga2, pasha2};
-        UserUtils.printUsersArray(users);
-        System.out.println();
+        User user = new User(111,"Andriy","Hafiyak",1500,1001);
+        User user1 = new User(222,"Andriy","Hafiyak",2000,999);
+        User user2 = new User(222,"Oleh","Popov",1990,19900);
+        User user3 = new User(222,"Alex","Popov",1990,19900);
+        User user4 = new User(555,"Vasia","Popov",1990,19900);
+        User user5 = new User(555,"Oksana","Popov",1990,19900);
 
-        System.out.println("First test. Unique users array:");
-        User[] usersUnique = UserUtils.uniqueUsers(users);
-        UserUtils.printUsersArray(usersUnique);
-        System.out.println();
+        System.out.println("========All Users=========== ;)");
+        User[] users = {user,user1,user2};
+        UserUtils.printUsers(users);
 
-        System.out.println("Second test. Paying salary for unique users.");
-        usersUnique = UserUtils.paySalaryToUsers(usersUnique);
-        UserUtils.printUsersArray(usersUnique);
-        System.out.println();
 
-        System.out.println("Third test. Search users in source array with balance == 30000");
-        User[] usersWithBalance = UserUtils.usersWithContitionalBalance(users, 30000);
-        UserUtils.printUsersArray(usersWithBalance);
-        System.out.println();
+        System.out.println("====Users unique  of athers =====");
+        User[] unique = UserUtils.uniqueUsers(users);
+        UserUtils.printUsers(unique);
 
-        System.out.println("Fourth test. Print array of all unique users id:");
-        long[] usersId = UserUtils.getUsersId(usersUnique);
+        System.out.println("====Users paySaylery....MMM...Good Best Day in monht.) =====");
+        User[] paySaylery = UserUtils.paySalaryToUsers(users);
+        UserUtils.printUsers(paySaylery);
+
+        System.out.println("====Users WithContitionalBalance   =====");
+        User[] balance = UserUtils.usersWithContitionalBalance(users,21890);
+        UserUtils.printUsers(balance);
+
+        System.out.println("====Users WithContitionalBalance   =====");
+        long[] usersId = UserUtils.getUsersId(users);
         System.out.println(Arrays.toString(usersId));
-        System.out.println();
 
-        System.out.println("Fifth test.");
+
+
         System.out.println("Deleting 3 and 6 users from source array...");
-        users[2] = null;
-        users[5] = null;
-        System.out.println("Success! Result:");
-        UserUtils.printUsersArray(users);
+        //users[222] = null;
+        //users[555] = null;
+        //System.out.println("Success! Result:");
+        UserUtils.printUsers(users);
         System.out.println("Deleting null elements from source array...");
         users = UserUtils.deleteEmpty(users);
-        UserUtils.printUsersArray(usersUnique);
+        UserUtils.printUsers(users);
         System.out.println("Success!");
+
+
     }
 }

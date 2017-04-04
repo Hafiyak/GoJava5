@@ -1,13 +1,9 @@
 package Module04;
 
 /**
- * Created by user on 01.12.2016.
+ * Created by user on 22.03.2017.
  */
 public enum Currency {
-
-
-        EUR,
-
-        USD,
+    EUR,USD,UAH,
 
 }

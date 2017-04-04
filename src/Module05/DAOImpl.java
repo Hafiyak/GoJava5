@@ -1,10 +1,11 @@
 package Module05;
 
+import java.util.Date;
+
 /**
- * Created by user on 15.01.2017.
+ * Created by user on 21.03.2017.
  */
 public class DAOImpl implements DAO {
-
 
     private Room[] db = new Room[1];
 
@@ -44,13 +45,31 @@ public class DAOImpl implements DAO {
 
     @Override
     public Room update(Room room) {
-        System.out.println("update room");
+     /*   System.out.println("update room");
         for (int i = 0; i < db.length; i++) {
             if (db[i].getId() == room.getId() && !db[i].equals(room)) {
                 db[i] = room;
             }
         }
-        return null;
+        return null;*/
+        System.out.print("update room");
+
+        for (int i = 0; i < db.length; i++) {
+            if (db[i] == null) {
+                db[i] = room;
+                break;
+            }
+            if (i == db.length - 1) {
+                Room[] dbTemp = new Room[db.length + 1];
+                for (int j = 0; j < db.length; j++) {
+                    dbTemp[j] = db[j];
+                }
+                db = dbTemp;
+                db[i + 1] = room;
+            }
+        }
+        return room;
+
     }
 
     @Override
@@ -62,6 +81,7 @@ public class DAOImpl implements DAO {
             }
         }
         return null;
+
     }
 
     @Override

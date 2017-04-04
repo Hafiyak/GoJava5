@@ -1,18 +1,19 @@
 package Module07;
 
+import Module04.Currency;
 /**
- * Created by user on 04.02.2017.
+ * Created by user on 22.03.2017.
  */
+public class Order   {
 
- import Module04.Currency;
 
-public class Order implements Comparable<Order>   {
-    private long id;
-    private int price;
+
+   private long id;
+    private int  price;
     private Currency currency;
     private String itemName;
     private String shopIdentificator;
-    public User user;
+    private User user;
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
@@ -23,7 +24,17 @@ public class Order implements Comparable<Order>   {
         this.user = user;
     }
 
-
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", price=" + price +
+                ", currency=" + currency +
+                ", itemName='" + itemName + '\'' +
+                ", shopIdentificator='" + shopIdentificator + '\'' +
+                ", user=" + user +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -32,44 +43,13 @@ public class Order implements Comparable<Order>   {
 
         Order order = (Order) o;
 
-        if (getId() != order.getId()) return false;
-        if (getPrice() != order.getPrice()) return false;
-        if (getCurrency() != order.getCurrency()) return false;
-        if (!getItemName().equals(order.getItemName())) return false;
-        if (!getShopIdentificator().equals(order.getShopIdentificator())) return false;
-        return getUser() != null ? getUser().equals(order.getUser()) : order.getUser() == null;
-
+        return getId() == order.getId();
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (getId() ^ (getId() >>> 32));
-        result = 31 * result + getPrice();
-        result = 31 * result + getCurrency().hashCode();
-        result = 31 * result + getItemName().hashCode();
-        result = 31 * result + getShopIdentificator().hashCode();
-        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
-        return result;
+        return (int) (getId() ^ (getId() >>> 32));
     }
-
-    @Override
-    public int compareTo(Order o) {
-        if (getPrice() != o.getPrice()) {
-            return (int) (Math.abs(getPrice() - o.getPrice()) / (getPrice() - o.getPrice()));
-        } else if (getId() != o.getId()) {
-            return (int) (Math.abs(getId() - o.getId()) / (getId() - o.getId()));
-        } else if (getItemName().compareTo(o.getItemName()) != 0) {
-            return getItemName().compareTo(o.getItemName());
-        } else if (getShopIdentificator().compareTo(o.getShopIdentificator()) != 0) {
-            return getShopIdentificator().compareTo(o.getShopIdentificator());
-        } else if (getCurrency().compareTo(o.getCurrency()) != 0) {
-            return getCurrency().compareTo(o.getCurrency());
-        } else if (getUser().compareTo(o.getUser()) != 0) {
-            return getUser().compareTo(o.getUser());
-        }
-        return 0;
-    }
-
 
     public long getId() {
         return id;
@@ -119,15 +99,4 @@ public class Order implements Comparable<Order>   {
         this.user = user;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", price=" + price +
-                ", currency=" + currency +
-                ", itemName='" + itemName + '\'' +
-                ", shopIdentificator='" + shopIdentificator + '\'' +
-                ", user=" + user +
-                '}';
-    }
 }

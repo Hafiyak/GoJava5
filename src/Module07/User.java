@@ -1,16 +1,20 @@
 package Module07;
 
+import Module04.Currency;
+
+import javax.jws.soap.SOAPBinding;
+
 /**
- * Created by user on 04.02.2017.
+ * Created by user on 22.03.2017.
  */
-public class User implements Comparable<User>  {
+public class User    {
+
+
     private long id;
     private String firstName;
-    private  String lastName;
-    private  String city;
+    private String lastName;
+    private String city;
     private int balance;
-
-
 
     public User(long id, String firstName, String lastName, String city, int balance) {
         this.id = id;
@@ -20,7 +24,16 @@ public class User implements Comparable<User>  {
         this.balance = balance;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city='" + city + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -34,7 +47,6 @@ public class User implements Comparable<User>  {
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
         if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
         return city != null ? city.equals(user.city) : user.city == null;
-
     }
 
     @Override
@@ -46,26 +58,6 @@ public class User implements Comparable<User>  {
         result = 31 * result + balance;
         return result;
     }
-
-    @Override
-    public int compareTo(User o) {
-        if (getId() != o.getId()) {
-            return (int) (Math.abs(getId() - o.getId()) / (getId() - o.getId()));
-        } else if (this.getBalance() != o.getBalance()) {
-            return (int) (Math.abs(getBalance() - o.getBalance()) / (getBalance() - o.getBalance()));
-        } else if (getFirstName().compareTo(o.getFirstName()) != 0) {
-            return getFirstName().compareTo(o.getFirstName());
-        } else if (getLastName().compareTo(o.getLastName()) != 0) {
-            return getLastName().compareTo(o.getLastName());
-        } else if (getCity().compareTo(o.getCity()) != 0) {
-            return getCity().compareTo(o.getCity());
-        }
-        return 0;
-    }
-
-
-
-
 
     public long getId() {
         return id;
@@ -107,14 +99,8 @@ public class User implements Comparable<User>  {
         this.balance = balance;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", city='" + city + '\'' +
-                ", balance=" + balance +
-                '}';
+
+    public User getUser(User user) {
+        return user;
     }
 }

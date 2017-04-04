@@ -1,18 +1,17 @@
 package Module05;
 
 /**
- * Created by user on 15.01.2017.
+ * Created by user on 21.03.2017.
  */
-public class TripAdvisorAPI extends APIAbstract {
-
+public class TripAdvisorAPI extends AbstractAPI {
 
     public TripAdvisorAPI() {
         Room[] roomsSet = new Room[5];
-        roomsSet[0] = new Room(3291874345L, 400, 1, 2016, 12, 20, "Hilton", "Kyiv");
-        roomsSet[1] = new Room(4567446375L, 200, 1, 2016, 12, 19, "Hilton", "Kyiv");
-        roomsSet[2] = new Room(3988746375L, 600, 2, 2016, 12, 5, "Hilton", "Kyiv");
-        roomsSet[3] = new Room(4567449847L, 400, 2, 2016, 12, 2, "Hyatt", "Kyiv");
-        roomsSet[4] = new Room(5367946375L, 500, 1, 2016, 12, 1, "Hyatt", "Kyiv");
+        roomsSet[0] = new Room(1012, 400, 1, 2017, 06, 2, "Mama", "Odessa");
+        roomsSet[1] = new Room(1013, 200, 2, 2017, 06, 4, "Mama", "Odessa");
+        roomsSet[2] = new Room(1014, 600, 3, 2017, 06, 6, "Mama", "Odessa");
+        roomsSet[3] = new Room(1015, 400, 4, 2017, 06, 8, "Mama", "Odessa");
+        roomsSet[4] = new Room(1016, 500, 5, 2017, 06, 10, "Mama", "Odessa");
         this.setRooms(roomsSet);
     }
 }

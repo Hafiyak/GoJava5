@@ -1,9 +1,10 @@
 package Module06;
 
 /**
- * Created by user on 18.01.2017.
+ * Created by user on 21.03.2017.
  */
 public class User {
+
     private long id;
     private String firstName;
     private String lastName;
@@ -21,13 +22,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                id +'\'' +
-                firstName + '\'' +
-                lastName + '\'' +
-                salary +'\'' +
-                balance +'\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                ", balance=" + balance +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -36,21 +38,20 @@ public class User {
 
         User user = (User) o;
 
-        if (getId() != user.getId()) return false;
-        if (getSalary() != user.getSalary()) return false;
-        if (getBalance() != user.getBalance()) return false;
-        if (!getFirstName().equals(user.getFirstName())) return false;
-        return getLastName().equals(user.getLastName());
-
+        if (id != user.id) return false;
+        if (salary != user.salary) return false;
+        if (balance != user.balance) return false;
+        if (!firstName.equals(user.firstName)) return false;
+        return lastName.equals(user.lastName);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (getId() ^ (getId() >>> 32));
-        result = 31 * result + getFirstName().hashCode();
-        result = 31 * result + getLastName().hashCode();
-        result = 31 * result + getSalary();
-        result = 31 * result + getBalance();
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + salary;
+        result = 31 * result + balance;
         return result;
     }
 
@@ -58,40 +59,39 @@ public class User {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getSalary() {
+        return salary;
     }
 
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
-
 }

@@ -1,13 +1,13 @@
 package Module05;
 
-/**
- * Created by user on 13.01.2017.
- */
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
-import java.util.Objects;
 
+/**
+ * Created by user on 20.03.2017.
+ */
 public class Room {
     private long id;
     private int price;

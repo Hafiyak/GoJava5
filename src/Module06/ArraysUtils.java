@@ -1,147 +1,12 @@
 package Module06;
 
-/**
- * Created by user on 18.01.2017.
- */
-
 import java.util.Arrays;
+import java.util.Collections;
 
-public final  class ArraysUtils {
-
-    public static int secondLargest(int[] array) {
-        int secondLargest = 0;
-        int max = array[0];
-        boolean firstMaxCheck = false;
-        for (int i = 1; i < array.length; i++) {
-            if (max <= array[i]) {
-                secondLargest = max;
-                max = array[i];
-                firstMaxCheck = true;
-            }
-
-        }
-        if (!firstMaxCheck) {
-            secondLargest = array[1];
-            for (int i = 1; i < array.length; i++) {
-                if (secondLargest < array[i]) {
-                    secondLargest = array[i];
-                }
-            }
-        }
-        return secondLargest;
-    }
-
-    public static double secondLargest(double[] array) {
-        double secondLargest = 0;
-        double max = array[0];
-        boolean firstMaxCheck = false;
-        for (double item : array) {
-            if (max <= item) {
-                secondLargest = max;
-                max = item;
-                firstMaxCheck = true;
-            }
-        }
-        if (!firstMaxCheck) {
-            secondLargest = array[1];
-            for (int i = 1; i < array.length; i++) {
-                if (secondLargest < array[i]) {
-                    secondLargest = array[i];
-                }
-            }
-        }
-
-        return secondLargest;
-    }
-
-
-    public static int max(int array[]) {
-        int max = array[0];
-        for (int item : array) {
-            if (max < item) {
-                max = item;
-            }
-        }
-        return max;
-    }
-
-    public static double max(double array[]) {
-        double max = array[0];
-        for (double item : array) {
-            if (max < item) {
-                max = item;
-            }
-        }
-        return max;
-    }
-
-
-    public static int min(int array[]) {
-        int min = array[0];
-        for (int item : array) {
-            if (min > item) {
-                min = item;
-            }
-        }
-        return min;
-    }
-
-    public static double min(double array[]) {
-        double min = array[0];
-        for (double item : array) {
-            if (min > item) {
-                min = item;
-            }
-        }
-        return min;
-    }
-
-
-    public static void maxPositive(int[] array) {
-        int maxPositive = array[0];
-        for (int item : array) {
-            if (maxPositive < item) {
-                maxPositive = item;
-            }
-        }
-        if (maxPositive > 0) {
-            System.out.println("Result of maxPositive(int array[]) method: " + maxPositive);
-        } else {
-            System.out.println("Result of maxPositive(int array[]) method: Sorry, this array have no positive values.");
-        }
-    }
-
-    public static void maxPositive(double[] array) {
-        double maxPositive = array[0];
-        for (double item : array) {
-            if (maxPositive < item) {
-                maxPositive = item;
-            }
-        }
-        if (maxPositive > 0) {
-            System.out.println("Result of maxPositive(double array[]) method: " + maxPositive);
-        } else {
-            System.out.println("Result of maxPositive(doible array[]) method: Sorry, this array have no positive values.");
-        }
-    }
-
-
-    public static void fillArray(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 101 - 50);
-        }
-
-    }
-
-    public static void fillArray(double[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (Math.random() * 100 - 50);
-        }
-
-    }
-
+/**
+ * Created by user on 21.03.2017.
+ */
+public final class ArraysUtils {
 
     public static void printArray(int[] array) {
         System.out.println(Arrays.toString(array));
@@ -151,68 +16,170 @@ public final  class ArraysUtils {
         System.out.println(Arrays.toString(array));
     }
 
+    public static  void fillArrays(int[] array) {
 
-    public static int sum(int array[]) {
-        int sum = 0;
-        for (int item : array) {
-            sum += item;
-        }
-        return sum;
+        System.out.println(Arrays.toString(array));
     }
 
-    public static double sum(double array[]) {
+    public static void doubleFirst_Last() {
+        double[] array = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 111.5};
+        double first = array[0];
+        double last = array[array.length - 1];
+        System.out.println("First: " + Math.abs(first));
+        System.out.println("Last: " + Math.abs(last));
+        System.out.println();
+    }
+
+    public static  void fillArrayinRandom(int[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 101 - 50);
+        }
+    }
+
+
+    public static void ADoubleMaxPositive() {
+        double[] array = {1.5, 2.5, 3.5, 4.5, 2.5, 4, 5, 1, 6, 7.5};
+        double max = 0;
+        for (double number : array)
+            if (number > 0 && max < number)
+                max = number;
+        System.out.println(max);
+    }
+
+    public static void AdoubleSum() {
+        double[] array = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5};
         double sum = 0;
-        for (double item : array) {
-            sum += item;
-        }
-        return sum;
+        for (double number : array)
+            sum += number;
+        System.out.println(sum);
+    }
+
+    public static void AIntFirstAndLastElemen() {
+        int[] array = {1, 5, 2, 56, 44, 5622, 85, 96, 751, 4523, 587, 156};
+        int first = array[0];
+        int last = array[array.length - 1];
+        System.out.println("First: " + Math.abs(first));
+        System.out.println("Last: " + Math.abs(last));
+    }
+
+    public static void AIntMaxPositive() {
+        int[] array = {1, -2, 5, 110, 13, 2, 5, 6, 7, 8};
+        int max = 0;
+        for (int number : array)
+            if (number > 0 && max < number)
+                max = number;
+        System.out.println(max);
+    }
+
+    public static void AIntMinMax() {
+        Integer[] array = {1, 22, 2, 5, 7, 100};
+
+        int min = Collections.min(Arrays.asList(array));
+        int max = Collections.max(Arrays.asList(array));
+
+
+        System.out.println("MINIMUM Element in Integer Array:" + min);
+        System.out.println("MAXIMUM Element in Integer Array:" + max);
+    }
+
+    public static void AIntSum() {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int sum = 0;
+        for (int number : array)
+            sum += number;
+        System.out.println(sum);
     }
 
 
-    public static int multiplication(int[] array) {
-        int result = 1;
+    public static void DoubleMultiplication() {
 
-        for (int item : array) {
-            result *= item;
-        }
-        return result;
+        Double[] array = {1.5, 2.5, 3.5, 4.5, 2.5, 4.5, 1.5, 7.5};
+        double product = 1;
+        for (double number : array)
+            product *= number;
+        System.out.println("Multiplication: " + product);
     }
 
-    public static double multiplication(double[] array) {
-        double result = 1;
+    public static void DoubleSecondLar() {
+        double[] array = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5};
+        double largest = array[0];
+        double secondLargest = array[0];
+        for (double number : array)
+            if (number > largest) {
+                secondLargest = largest;
+                largest = number;
+            } else if (number > secondLargest)
+                secondLargest = number;
+        System.out.println("Second largest: " + secondLargest);
 
-        for (double item : array) {
-            result *= item;
+    }
+
+    public static void FundAccount() {
+        int[] balances = {1200, 250, 2000, 500, 3200};
+        String[] ownerNames = {"Jane", "Ann", "Jack", "Oww", "Lane"};
+        String ownerName = "Oww";
+        double withdrawal = 100;
+        for (int i = 0; i < ownerNames.length - 1; i++) {
+            if (ownerNames[i].equals(ownerName)) {
+                System.out.print(ownerName + " ");
+                balances[i] += withdrawal;
+                System.out.println(balances[i]);
+
+            }
         }
-        return result;
     }
 
 
-    public static void modulus(int[] array) {
-        if (array[0] != 0) {
-            System.out.println("Result of modulus(int array[]) method: " + array[0] % array[array.length - 1]);
+    public static void IntMultiplication() {
+
+        int[] array = {1, 2, 3, 11, 2, 2, 2, 2, 2, 2, 2, 2};
+        int product = 1;
+        for (int number : array)
+            product *= number;
+        System.out.println("Multiplication: " + product);
+    }
+
+    public static void IntSecondLar() {
+        int[] array = {1, 5, 15, 61, 62, 110, 253, 456, 265, 1111, 256, 1522};
+        int largest = array[0];
+        int secondLargest = array[0];
+        for (int number : array)
+            if (number > largest) {
+                secondLargest = largest;
+                largest = number;
+            } else if (number > secondLargest)
+                secondLargest = number;
+        System.out.println("Second largest: " + secondLargest);
+    }
+
+    public static void WithdrawalParticularAccount() {
+        int[] balances = {1200, 250, 2000, 500, 3200};
+        String[] ownerNames = {"Jane", "Ann", "Jack", "Oww", "Lane"};
+        String ownerName = "Ann";
+        double withdrawal = 100;
+//        String ownerName = "Oww";
+//        double withdrawal = 490;
+        for (int i = 0; i < ownerNames.length; i++) {
+            if (ownerNames[i] == ownerName) {
+                System.out.print(ownerName + " ");
+                withdrawal(withdrawal, balances[i]);
+
+            }
+        }
+    }
+
+    public static void withdrawal(double withdrawal, int balance) {
+        double commission = 0.05;
+        double withdrawCommission = withdrawal * commission ;
+        double withdraw = withdrawal + withdrawCommission;
+        if (withdraw > balance) {
+            System.out.println("NO");
         } else {
-            System.out.println("Result of modulus(int array[]) method: Sorry, error occured - you can't devide on zero");
+            balance -= withdraw;
+            System.out.println(withdrawal + " " + balance);
         }
     }
-
-    public static void modulus(double[] array) {
-        if (array[0] != 0) {
-            System.out.println("Result of modulus(int array[]) method: " + array[0] % array[array.length - 1]);
-        } else {
-            System.out.println("Result of modulus(int array[]) method: Sorry, error occured - you can't devide on zero");
-        }
-    }
-
-
-    public static int[] reverse(int[] arrayInt) {
-        int[] newArray = new int[arrayInt.length];
-        for (int i = 0; i < arrayInt.length; i++) {
-            newArray[i] = arrayInt[arrayInt.length - 1 - i];
-        }
-        return newArray;
-    }
-
 
     public static double[] reverse(double[] arrayDouble) {
         double[] newArray = new double[arrayDouble.length];
@@ -234,5 +201,10 @@ public final  class ArraysUtils {
             }
         }
         return arrayEven;
+
     }
 }
+
+
+
+

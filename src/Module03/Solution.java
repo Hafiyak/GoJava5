@@ -8,7 +8,7 @@ import  java.util.GregorianCalendar;
 public class Solution {
 
     public static void main(String[] args) {
-        GregorianCalendar startDate1 = new GregorianCalendar(2016, 7, 20);
+        GregorianCalendar startDate1 = new GregorianCalendar(2017, 7, 20);
         GregorianCalendar startDate2 = new GregorianCalendar(2016, 9, 20);
         GregorianCalendar startDate3 = new GregorianCalendar(2016, 11, 2);
         GregorianCalendar startDate4 = new GregorianCalendar(2017, 1, 20);
@@ -26,6 +26,7 @@ public class Solution {
         coursesTaken[2] = course2;
         coursesTaken[3] = course3;
         coursesTaken[4] = course4;
+
         Student student1 = new Student("Alex", "Rudenko", 9);
         Student student2 = new Student("Rudenko", coursesTaken);
 
@@ -37,6 +38,10 @@ public class Solution {
         SpecialStudent student7 = new SpecialStudent("Bondar", coursesTaken, 54783728594372834L);
         SpecialStudent student8 = new SpecialStudent("Ivan", "Ivanov", 7);
         SpecialStudent student9 = new SpecialStudent("Baranov", coursesTaken, "Baran", 10, 547836473625098L);
+
+        System.out.println(student1);
     }
+
+
 
 }

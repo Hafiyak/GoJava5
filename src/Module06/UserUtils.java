@@ -1,11 +1,12 @@
 package Module06;
 
-/**
- * Created by user on 18.01.2017.
- */
-
+import javax.jws.soap.SOAPBinding;
+import java.sql.Array;
 import java.util.Arrays;
 
+/**
+ * Created by user on 21.03.2017.
+ */
 public class UserUtils {
 
     public static User[] uniqueUsers(User[] users) {
@@ -33,6 +34,7 @@ public class UserUtils {
         return usersUnique;
     }
 
+
     public static User[] usersWithContitionalBalance(User[] users, int balance) {
         User[] usersWithBalance = new User[0];
         for (int i = 0; i < users.length; i++) {
@@ -48,7 +50,8 @@ public class UserUtils {
         return usersWithBalance;
     }
 
-    public final static User[] paySalaryToUsers(User[] users) {
+
+    public static User[] paySalaryToUsers(User[] users) {
         for (User user : users) {
             user.setBalance(user.getBalance() + user.getSalary());
         }
@@ -64,6 +67,7 @@ public class UserUtils {
     }
 
     public static User[] deleteEmpty(User[] users) {
+
         User[] usersNotEmpty = new User[0];
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null) {
@@ -76,12 +80,15 @@ public class UserUtils {
             }
         }
         return usersNotEmpty;
-
-
     }
 
-    public static void printUsersArray(User[] users) {
+
+
+
+
+
+
+    public static void printUsers(User[] users) {
         System.out.println(Arrays.toString(users));
     }
-
 }

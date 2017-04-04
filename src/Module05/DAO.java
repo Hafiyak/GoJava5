@@ -1,7 +1,7 @@
 package Module05;
 
 /**
- * Created by user on 13.01.2017.
+ * Created by user on 21.03.2017.
  */
 public interface DAO {
 
@@ -11,5 +11,4 @@ public interface DAO {
     Room update(Room room);
     Room findById(long id);
     Room[] getAll();
-
 }

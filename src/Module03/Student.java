@@ -1,5 +1,7 @@
 package Module03;
 
+import java.util.Arrays;
+
 /**
  * Created by user on 15.01.2017.
  */
@@ -18,6 +20,18 @@ public class Student {
     Student(String lastName, Course[] coursesTaken){
         this.lastName = lastName;
         this.coursesTaken = coursesTaken;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", group=" + group +
+                ", coursesTaken=" + Arrays.toString(coursesTaken) +
+                ", age=" + age +
+                '}';
     }
 
     public String getFirstName() {

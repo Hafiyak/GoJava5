@@ -13,6 +13,7 @@ public class AIntMinMax {
         int min = Collections.min(Arrays.asList(array));
         int max = Collections.max(Arrays.asList(array));
 
+
         System.out.println("MINIMUM Element in Integer Array:" +min);
         System.out.println("MAXIMUM Element in Integer Array:" +max);
     }
